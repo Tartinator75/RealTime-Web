@@ -1,0 +1,168 @@
+easy_admin:
+    site_name: '<h2 style="color:#8A0D10;">Le Marketplace</h2>'
+
+    entities:
+      CategorieEnchere:    
+            class: App\Entity\CategorieEnchere
+            label: "Catégorie des Enchères"
+            form:
+                fields:
+                    - {type: 'group', icon: 'pencil', label: 'Informations de base', css_class: 'col-lg-7'}
+                    - nom_categorie
+                    - {type: 'group', icon: 'th-list', label: 'Autres informations', css_class: 'col-lg-5'}
+                    - Enchere
+            show:
+                fields:
+                    - nom_categorie
+                    - Enchere
+            list:
+                title: "Liste des catégories des Enchères"
+                collapse_actions: true
+                batch_actions: ['delete']
+                actions:
+                    - {name: 'show', icon: 'eye', label: false, css_class: 'btn btn-info'}
+                    - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-success'}
+                    - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}
+
+      CategorieProduit:    
+            class: App\Entity\CategorieProduit
+            label: "Catégorie des Produits"
+            form:
+                fields:
+                    - {type: 'group', icon: 'pencil', label: 'Informations de base', css_class: 'col-lg-7'}
+                    - nom_categorie
+                    - {type: 'group', icon: 'th-list', label: 'Autres informations', css_class: 'col-lg-5'}
+                    - Produit
+            show:
+                fields:
+                    - nom_categorie
+                    - Produit
+            list:
+                title: "Liste des catégories des Produits"
+                collapse_actions: true
+                batch_actions: ['delete']
+                actions:
+                    - {name: 'show', icon: 'eye', label: false, css_class: 'btn btn-info'}
+                    - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-success'}
+                    - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}
+
+      Enchere:    
+            class: App\Entity\Enchere
+            label: "Enchères"
+            form:
+                fields:
+                    - {type: 'group', icon: 'pencil', label: 'Informations de base', css_class: 'col-lg-7'}
+                    - titre
+                    - date_debut
+                    - date_fin
+                    - statut
+                    - image
+                    # - {property: 'imageArtisteFile', type: 'vich_image'}
+                    - {type: 'group', icon: 'th-list', label: 'Autres informations', css_class: 'col-lg-5'}
+                    - utilisateur
+                    - produits
+                    - categorieEnchere
+            show:
+                fields:
+                    - titre 
+                    - date_debut
+                    - date_fin
+                    - statut
+                    - image
+                    # - {property: 'imageArtiste', type: 'image', base_path: '/img/artistes'}
+                    # - {property: 'descritpionArtistes', type: 'raw'} 
+                    - utilisateur
+                    - produits
+                    - categorieEnchere
+            list:
+                title: "Liste des Enchères"
+                collapse_actions: true
+                batch_actions: ['delete']
+                fields: ['titre', 'date_debut', 'date_fin', 'statut', 'image', 'utilisateur', 'produits', 'categorieEnchere']
+                actions:
+                    - {name: 'show', icon: 'eye', label: false, css_class: 'btn btn-info'}
+                    - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-success'}
+                    - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}  
+
+      Produit:    
+            class: App\Entity\Produit
+            label: "Produits"
+            form:
+                fields:
+                    - {type: 'group', icon: 'pencil', label: 'Informations de base', css_class: 'col-lg-7'}
+                    - nom_produit
+                    - image
+                    - quantite
+                    - prix
+                    - {property: 'description', type: 'text_editor'}
+                    # - {property: 'imageArtisteFile', type: 'vich_image'}
+                    - {type: 'group', icon: 'th-list', label: 'Autres informations', css_class: 'col-lg-5'}
+                    - utilisateur
+                    - Enchere
+                    - categorieProduit
+            show:
+                fields:
+                    - nom_produit 
+                    - image
+                    - quantite
+                    - prix
+                    - description
+                    # - {property: 'imageArtiste', type: 'image', base_path: '/img/artistes'}
+                    - {property: 'description', type: 'raw'} 
+                    - utilisateur
+                    - Enchere
+                    - categorieProduit
+            list:
+                title: "Liste des Produits"
+                collapse_actions: true
+                batch_actions: ['delete']
+                fields: ['nom_produit', 'image', 'quantite', 'prix', 'description', 'utilisateur', 'Enchere', 'categorieProduit']
+                actions:
+                    - {name: 'show', icon: 'eye', label: false, css_class: 'btn btn-info'}
+                    - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-success'}
+                    - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}              
+
+      Utilisateur:    
+            class: App\Entity\Utilisateur
+            label: "Utilisateurs"
+            form:
+                fields:
+                    - {type: 'group', icon: 'pencil', label: 'Informations de base', css_class: 'col-lg-7'}
+                    - prenom
+                    - nom
+                    - pseudo
+                    - ville
+                    - sexe
+                    - age
+                    - {type: 'group', icon: 'th-list', label: 'Autres informations', css_class: 'col-lg-5'}
+                    - mail
+                    - mot_de_passe
+                    - role
+            show:
+                fields:
+                    - prenom 
+                    - nom
+                    - pseudo
+                    - ville
+                    - sexe
+                    - age
+                    - mail
+                    - mot_de_passe
+                    - role
+            list:
+                title: "Liste des Utilisateurs"
+                collapse_actions: true
+                batch_actions: ['delete']
+                fields: ['prenom', 'nom', 'pseudo', 'ville', 'sexe', 'age', 'mail', 'role']
+                actions:
+                    - {name: 'show', icon: 'eye', label: false, css_class: 'btn btn-info'}
+                    - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-success'}
+                    - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}              
+ 
+
+#        # List the entity class name you want to manage
+#        - App\Entity\CategorieEnchere
+ #       - App\Entity\CategorieProduit
+  #      - App\Entity\Enchere
+  #      - App\Entity\Produit
+  #      - App\Entity\Utilisateur

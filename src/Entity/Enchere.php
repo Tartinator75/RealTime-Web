@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Enchere;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -138,6 +139,11 @@ class Enchere
         $this->utilisateur = $utilisateur;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->titre;
     }
 
     /**

@@ -2,6 +2,9 @@
 
 namespace App\Entity;
 
+use App\Entity\Produit;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -131,6 +134,11 @@ class Produit
         $this->utilisateur = $utilisateur;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->nom_produit;
     }
 
     public function getEnchere(): ?Enchere

@@ -50,6 +50,11 @@ class CategorieProduit
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->nom_categorie;
+    }
+
     /**
      * @return Collection|Produit[]
      */
